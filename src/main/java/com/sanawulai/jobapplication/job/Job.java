@@ -1,8 +1,14 @@
 package com.sanawulai.jobapplication.job;
 
+import jakarta.persistence.*;
+
+@Entity
+//@Table(name = "job_table")
 public class Job {
 
     //every job is gonna have all these details
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     private String title;
     private String description;
