@@ -12,4 +12,7 @@ public interface JobService {
 
     //get job by id
     Job getJobById(long id);
+
+    //delete job by id
+    Boolean deleteJobById(long id);
 }
