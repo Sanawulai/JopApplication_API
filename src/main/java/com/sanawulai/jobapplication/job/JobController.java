@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @RestController
+@RequestMapping("jobs")
 public class JobController {
   private JobService jobService;
 
@@ -20,13 +21,13 @@ public class JobController {
 
 
     //get a list of all jobs
-    @GetMapping("/jobs")
+    @GetMapping
     public ResponseEntity<List<Job>> findAll(){
         return ResponseEntity.ok(jobService.findAll());
     }
 
     //create a new job
-    @PostMapping("/jobs")
+    @PostMapping
     public ResponseEntity<String> createJob(@RequestBody Job job){
         jobService.createJob(job);
         return new ResponseEntity<>("Job added successfully",HttpStatus.CREATED);
@@ -45,7 +46,7 @@ public class JobController {
     }
 
 //delete job by id
-@DeleteMapping("/jobs/{id}")
+@DeleteMapping("/{id}")
 public ResponseEntity<String> deleteJob(@PathVariable long id) {
     boolean deleted= jobService.deleteJobById(id);
     if (deleted) {
@@ -57,7 +58,8 @@ public ResponseEntity<String> deleteJob(@PathVariable long id) {
 
 
 //update job by {id}
-    @PutMapping("jobs/{id}")
+  //  @RequestMapping(value = "/jobs/{id}", method = RequestMethod.PUT) another way of doing this
+    @PutMapping("/{id}")
     public ResponseEntity<String> updateJob(@PathVariable long id, @RequestBody Job updatedJob){
       boolean updated = jobService.updateJobById(id,updatedJob);
       if (updated){
