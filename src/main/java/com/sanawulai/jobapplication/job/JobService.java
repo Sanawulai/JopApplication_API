@@ -7,14 +7,14 @@ public interface JobService {
     //get all jobs
     List<Job> findAll();
 
-    //creae job
+    //create job
     void createJob(Job job);
 
     //get job by id
     Job getJobById(long id);
 
     //delete job by id
-    Boolean deleteJobById(long id);
+    boolean deleteJobById(long id);
 
     boolean updateJobById(long id, Job updatedJob);
 }
