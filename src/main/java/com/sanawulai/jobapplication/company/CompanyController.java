@@ -14,16 +14,14 @@ import java.util.List;
 public class CompanyController {
     private CompanyService companyService;
 
-    public CompanyController() {
-    }
-
+    @Autowired
     public CompanyController(CompanyService companyService){
         this.companyService = companyService;
     }
 
     @GetMapping
-    public List<Company> getAllCompanies() {
-        return companyService.getAllCompanies();
+    public ResponseEntity<List<Company>> getAllCompanies() {
+        return new ResponseEntity<>(companyService.getAllCompanies(),HttpStatus.OK);
     }
 
     @PutMapping("/{id}")
@@ -31,5 +29,12 @@ public class CompanyController {
                                                 @RequestBody Company company){
         companyService.updateCompany(company,id);
         return new ResponseEntity<>("Company updated successfully", HttpStatus.OK);
+    }
+
+
+    @PostMapping
+    public ResponseEntity<String> addCompany(@RequestBody Company company){
+        companyService.createCompany(company);
+        return new ResponseEntity<>("Company updated successfully",HttpStatus.CREATED);
     }
 }
