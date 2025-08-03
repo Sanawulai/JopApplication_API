@@ -12,7 +12,7 @@ import java.util.*;
 public class JobServiceImpl implements JobService {
 
     //private List<Job> jobs = new ArrayList<>();
-    JobRepository jobRepository;
+    private JobRepository jobRepository;
 
     @Autowired
     public JobServiceImpl(JobRepository jobRepository) {

@@ -1,5 +1,6 @@
 package com.sanawulai.jobapplication.company;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.sanawulai.jobapplication.job.Job;
 import jakarta.persistence.*;
 
@@ -16,7 +17,8 @@ public class Company {
 
     private String description;
 
-    @OneToMany(cascade = CascadeType.ALL)
+    @JsonIgnore
+    @OneToMany(mappedBy = "company")
     private List<Job> jobs;
 
     //private List<Review> reviews;

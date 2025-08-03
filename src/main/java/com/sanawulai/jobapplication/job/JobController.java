@@ -1,5 +1,6 @@
 package com.sanawulai.jobapplication.job;
 
+import com.sanawulai.jobapplication.company.Company;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -65,6 +66,8 @@ public ResponseEntity<String> deleteJobById(@PathVariable long id) {
       return new ResponseEntity<>("Job doesn't exist",HttpStatus.NOT_FOUND);
 
     }
+
+
 
 
 
