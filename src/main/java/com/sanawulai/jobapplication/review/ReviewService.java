@@ -8,9 +8,12 @@ import java.util.List;
 public interface ReviewService {
     List<Review> getAllReviews(long companyId);
 
-    Boolean addReview(long companyId,Review review);
+    Boolean addReview(long companyId, Review review);
 
-    Review getReview(long companyId,long reviewId);
+    Review getReview(long companyId, long reviewId);
 
-    Boolean updateReview(long companyId, long reviewId,Review updateddReview);
+    Boolean updateReview(long companyId, long reviewId, Review updateddReview);
+
+
+    boolean deleteReview(long companyId, long reviewId);
 }
